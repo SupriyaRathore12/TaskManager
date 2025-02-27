@@ -9,23 +9,29 @@ import Tasks from './pages/Tasks'
 import Trash from './pages/Trash'
 import TaskDetails from './pages/TaskDetails'
 import Login from './pages/Login'
+import { useSelector } from 'react-redux'
+import Sidebar from './components/Sidebar'
+import Navbar from './components/Navbar'
+
 
 
 
 function Layout (){
-  const user=""
-  const location = useLocation()
+  const {user}=useSelector((state)=>state.auth);
+  const location = useLocation();
+  console.log("User in Redux Store:", user); 
+  console.log(user)
   return user ? (
    <div className='w-full h-screen flex flex-col md:flex-row '>
     <div className="w-1/5 b-screen bg-white sticky rop-0 hiddne md:block">
-    {/*<side bar/> */}
+    <Sidebar/>
     </div>
 
     {/*<MobileSidebar/>*/}
 
     <div>
       <div className='flex-1 overflow-y-auto'>
-        {/* {<Navbar/>} */}
+         <Navbar/>
 
         <div className='p-4 2xl:px-10'>
           <Outlet/>

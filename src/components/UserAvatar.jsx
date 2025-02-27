@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Trash = () => {
+const UserAvatar = () => {
   return (
     <div>
-      trashed
+      
     </div>
   )
 }
 
-export default Trash
+export default UserAvatar
