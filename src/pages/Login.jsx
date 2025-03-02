@@ -57,7 +57,7 @@ const Login = () => {
 
         {/* Right Side (Login Form) */}
         <div className="w-full md:w-1/3 flex flex-col justify-center items-center">
-          <form onSubmit={handleSubmit(submitHandler)} className='bg-white w-full lg:w-[56rem] md:w-[48rem] sm:w-[32rem] p-5 shadow-lg'>
+          <form onSubmit={handleSubmit(submitHandler)} className='bg-white  w-full rounded-xl  p-5 shadow-lg'>
             <div className='text-center'>
               <p className='text-blue-600 text-3xl font-bold'>Welcome back!</p>
               <p className='text-gray-700'>Keep all your credentials safe.</p>

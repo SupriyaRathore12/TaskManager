@@ -10,7 +10,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className=' md:w-[40rem] overflow-visible lg:w-[60rem]  flex justify-between items-center bg-white px-4 py-3 2xl:py-4 sticky z-10 top-0'>
+    <div className=' md:w-[35rem] lg:w-[54rem] xl:w-[62rem]  flex justify-between items-center bg-white px-4 py-3 2xl:py-4 sticky z-10 top-0'>
       <div className=' flex gap-4'>
         <button
           onClick={() => dispatch(setOpenSidebar(true))}

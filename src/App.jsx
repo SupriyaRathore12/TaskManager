@@ -30,7 +30,7 @@ function Layout (){
     {/*<MobileSidebar/>*/}
 
     <div>
-      <div className='flex-1 overflow-y-auto'>
+      <div className='flex-1 '>
          <Navbar/>
 
         <div className='p-4 2xl:px-10'>
