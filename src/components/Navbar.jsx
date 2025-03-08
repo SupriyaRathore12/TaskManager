@@ -3,15 +3,15 @@ import { MdOutlineSearch } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { setOpenSidebar } from "../redux/slices/authSlice";
 import UserAvatar from "./UserAvatar.jsx";
-// import NotificationPanel from "./NotificationPanel.jsx/index.js";
+import NotificationPanel from "./NotificationPanel.jsx";
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   return (
-    <div className=' md:w-[35rem] lg:w-[54rem] xl:w-[62rem]  flex justify-between items-center bg-white px-4 py-3 2xl:py-4 sticky z-10 top-0'>
-      <div className=' flex gap-4'>
+    <div className='sm:w-[16rem] md:w-[35rem] lg:w-[62rem]   flex justify-between items-center bg-white px-4 py-3 2xl:py-4 sticky z-10 top-0'>
+      <div className=' flex gap-5'>
         <button
           onClick={() => dispatch(setOpenSidebar(true))}
           className='text-2xl text-gray-500 block md:hidden'
@@ -19,7 +19,7 @@ const Navbar = () => {
           ☰
         </button>
 
-        <div className='w-64 2xl:w-[400px] flex items-center py-2 px-3 gap-2 rounded-full bg-[#f3f4f6]'>
+        <div className=' sm:w-48 w-64 2xl:w-[400px] flex items-center py-2 px-3 gap-2 rounded-full bg-[#f3f4f6]'>
           <MdOutlineSearch className='text-gray-500 text-xl' />
 
           <input
@@ -31,7 +31,7 @@ const Navbar = () => {
       </div>
 
       <div className='flex gap-2 items-center'>
-        {/* <NotificationPanel /> */}
+        <NotificationPanel />
 
         <UserAvatar />
       </div>

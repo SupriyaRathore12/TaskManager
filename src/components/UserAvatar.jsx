@@ -21,7 +21,7 @@ const UserAvatar = () => {
 
   return (
     <div>
-      <Menu as="div" className="relative inline-block text-left">
+      <Menu as="div" className="relative inline-block cursor-pointer text-left">
         <MenuButton as={Fragment} className="w-10 h-10 2xl:w-12 2xl:h-12 flex items-center justify-center rounded-full bg-blue-600">
           <span className="text-white font-semibold">
             {getInitials(user.name)}
@@ -44,7 +44,7 @@ const UserAvatar = () => {
     <div className="p-4 ">
       <MenuItem as="button"
         className={({ isActive }) =>
-          `flex w-full items-center rounded-md px-2 py-2 text-base ${
+          `flex w-full cursor-pointer items-center rounded-md px-2 py-2 text-base ${
             isActive ? "bg-gray-100 text-gray-900" : "text-gray-700"
           }`
         }
@@ -55,7 +55,7 @@ const UserAvatar = () => {
 
       <MenuItem as="button"
         className={({ isActive }) =>
-          `flex w-full items-center rounded-md px-2 py-2 text-base ${
+          `flex w-full cursor-pointer items-center rounded-md px-2 py-2 text-base ${
             isActive ? "bg-gray-100 text-gray-900" : "text-gray-700"
           }`
         }
@@ -66,7 +66,7 @@ const UserAvatar = () => {
 
       <MenuItem as="button"
         className={({ isActive }) =>
-          `flex w-full items-center rounded-md px-2 py-2 text-base ${
+          `flex w-fullv items-center rounded-md px-2 py-2 text-base ${
             isActive ? "bg-red-100 text-red-600" : "text-red-600"
           }`
         }
