@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Users from './pages/Users'
 import {Navigate,Routes,Route,Outlet,useLocation} from "react-router-dom"
@@ -9,9 +7,18 @@ import Tasks from './pages/Tasks'
 import Trash from './pages/Trash'
 import TaskDetails from './pages/TaskDetails'
 import Login from './pages/Login'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
+import { setOpenSidebar } from "./redux/slices/authSlice";
+import { useRef, Fragment } from "react";
+
+import { Transition } from "@headlessui/react"; // ✅ Transition ka import
+import { IoClose } from "react-icons/io5"; // ✅ IoClose icon ka import
+import clsx from "clsx"; 
+
+
+
 
 
 
@@ -23,11 +30,15 @@ function Layout (){
   console.log(user)
   return user ? (
    <div className='w-full h-screen flex flex-col md:flex-row '>
+<<<<<<< HEAD
     <div className="w-1/5 b-screen bg-white sticky top-0 hidden md:block">
+=======
+    <div className="w-1/5 h-screen bg-white sticky top-0 hidden md:block">
+>>>>>>> b78857f835233abb4bd739a8b692eedc147226a4
     <Sidebar/>
     </div>
 
-    {/*<MobileSidebar/>*/}
+    <MobileSidebar/>
 
     <div>
       <div className='flex-1 '>
@@ -47,6 +58,61 @@ function Layout (){
   )
 }
 
+
+
+const MobileSidebar = () => {
+  const { isSidebarOpen } = useSelector((state) => state.auth);
+  const mobileMenuRef = useRef(null);
+  const dispatch = useDispatch();
+
+  const closeSidebar = () => {
+    dispatch(setOpenSidebar(false));
+  };
+
+  return (
+    <>
+      <Transition
+        show={isSidebarOpen}
+        as={Fragment}
+        enter='transition-opacity duration-700'
+        enterFrom='opacity-x-10'
+        enterTo='opacity-x-100'
+        leave='transition-opacity duration-700'
+        leaveFrom='opacity-x-100'
+        leaveTo='opacity-x-0'
+      >
+        {(ref) => (
+          <div
+            ref={(node) => (mobileMenuRef.current = node)}
+            className={clsx(
+              "md:hidden w-full h-full bg-black/40 transition-all duration-700 transform ",
+              isSidebarOpen ? "translate-x-0" : "translate-x-full"
+            )}
+            onClick={() => closeSidebar()}
+          >
+            <div className='bg-white w-3/4 h-full'>
+              <div className='w-full flex justify-end px-5 mt-5'>
+                <button
+                  onClick={() => closeSidebar()}
+                  className='flex justify-end items-end'
+                >
+                  <IoClose size={25} />
+                </button>
+              </div>
+
+              <div className='-mt-10'>
+                <Sidebar />
+              </div>
+            </div>
+          </div>
+        )}
+      </Transition>
+    </>
+  );
+};
+
+
+ 
 function App() {
    
 

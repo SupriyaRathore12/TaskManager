@@ -41,7 +41,8 @@ const authSlice = createSlice({
             console.log("User Logged Out"); // Debugging ke liye
         },
         setOpenSidebar: (state, action) => {
-            state.isSidebarOpen = action.payload ?? !state.isSidebarOpen;  // Toggle bhi ho sakta hai
+            state.isSidebarOpen = action.payload ?? !state.isSidebarOpen; 
+            console.log("Sidebar State Updated:", state.isSidebarOpen);  // Toggle bhi ho sakta hai
         },
     },
 });
