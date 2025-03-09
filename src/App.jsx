@@ -23,7 +23,7 @@ function Layout (){
   console.log(user)
   return user ? (
    <div className='w-full h-screen flex flex-col md:flex-row '>
-    <div className="w-1/5 b-screen bg-white sticky rop-0 hiddne md:block">
+    <div className="w-1/5 b-screen bg-white sticky top-0 hidden md:block">
     <Sidebar/>
     </div>
 
