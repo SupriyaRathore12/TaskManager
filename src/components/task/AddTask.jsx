@@ -4,7 +4,7 @@ import { Dialog } from "@headlessui/react";
 import Textbox from "../Textbox";
 import { useForm } from "react-hook-form";
 import UserList from "./UserList.jsx";
-import SelectList from "../SelectList.jsx/index.js";
+import SelectList from "../SelectList";
 import { BiImages } from "react-icons/bi";
 import Button from "../Button";
 

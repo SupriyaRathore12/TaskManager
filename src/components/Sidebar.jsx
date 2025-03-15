@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   MdDashboard,
   MdOutlineAddTask,
@@ -11,8 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { setOpenSidebar } from "../redux/slices/authSlice";
 import clsx from "clsx";
-
-
 
 const linkData = [
   {
@@ -52,16 +50,9 @@ const linkData = [
   },
 ];
 
-
-
-
-
-
-
-
-
-const sidebar = () => {
+const Sidebar = () => {
   const { user } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -80,7 +71,7 @@ const sidebar = () => {
         onClick={closeSidebar}
         className={clsx(
           "w-full lg:w-3/4 flex gap-2 px-3 py-2 rounded-full items-center text-gray-800 text-base hover:bg-[#2564ed2d]",
-          path === el.link.split("/")[0] ? "bg-blue-700 text--100" : ""
+          path === el.link.split("/")[0] ? "bg-blue-700 text-neutral-100" : ""
         )}
       >
         {el.icon}
@@ -88,7 +79,6 @@ const sidebar = () => {
       </Link>
     );
   };
-
   return (
     <div className='w-full  h-full flex flex-col gap-6 p-5'>
       <h1 className='flex gap-1 items-center'>
@@ -111,7 +101,7 @@ const sidebar = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default sidebar
+export default Sidebar;
