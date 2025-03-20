@@ -5,29 +5,53 @@ import { useNavigate } from 'react-router-dom';
 import { setCredentials } from '../redux/slices/authSlice';  // ✅ Redux Action Import
 import Textbox from '../components/TextBox';
 import Button from '../components/Button';
+import { useLoginMutation } from '../redux/slices/api/authApiSlice';
+import { toast } from "sonner";
+
+import Loading from '../components/Loader'
+
 
 const Login = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+const [login,{isLoading}] = useLoginMutation();
+
+
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   // ✅ Form Submit Handler (Redux + LocalStorage me User Save Karna)
   const submitHandler = async (data) => {
-    console.log("Form Submitted:", data);
+    // console.log("Form Submitted:", data);
 
-    // ✅ Fake User Data (Aage Backend se Replace Hoga)
-    const userData = {
-      id: Date.now(),
-      name: "Demo User",
-      email: data.email,
-    };
 
-    // ✅ Redux me user store karo
-    dispatch(setCredentials(userData));
+    try {
+      const result = await login(data).unwrap();
+      
+      dispatch(setCredentials(result));
+      navigate("/")
 
-    // ✅ Navigate to Dashboard
-    navigate("/dashboard");
+
+    } catch (error) {
+      console.log("Login Error:", error); // Debugging ke liye console check kar
+      toast.error(error?.data?.message || error?.message || "Login Failed");
+    }
+    
+
+    // // ✅ Fake User Data (Aage Backend se Replace Hoga)
+    // const userData = {
+    //   id: Date.now(),
+    //   name: "Demo User",
+    //   email: data.email,
+    // };
+
+
+
+    // // ✅ Redux me user store karo
+    // dispatch(setCredentials(userData));
+
+    // // ✅ Navigate to Dashboard
+    // navigate("/dashboard");
   };
 
   console.log("Redux User =", user);
@@ -83,7 +107,7 @@ const Login = () => {
                 Forget Password?
               </span>
 
-              <Button type='submit' label='Login' className='w-full h-10 bg-blue-700 text-white rounded-full' />
+              {isLoading? <Loading/> : <Button type='submit' label='Login' className='w-full h-10 bg-blue-700 text-white rounded-full' />}
             </div>
           </form>
         </div>

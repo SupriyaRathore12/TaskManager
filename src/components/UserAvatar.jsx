@@ -3,9 +3,12 @@ import { FaUser, FaUserLock } from 'react-icons/fa';
 import { IoLogOutOutline } from 'react-icons/io5';
 import { Menu, MenuButton, MenuItems, MenuItem, Transition } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { getInitials } from '../utils';
 import { Fragment } from "react";
+import { toast } from 'sonner';
+import { useLogoutMutation } from '../redux/slices/api/authApiSlice';
+import { logout } from '../redux/slices/authSlice';
 
 
 const UserAvatar = () => {
@@ -14,10 +17,22 @@ const UserAvatar = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
 
-  const logoutHandler = useCallback(() => {
-    console.log('logout');
-  }, []);
+  const [logoutUser]= useLogoutMutation();
+  const logoutHandler = async() => {
+    try {
+      await logoutUser().unwrap();
+      
+      dispatch(logout())
+
+      
+      navigate("/log-in")
+    } catch (error) {
+      toast.error("somthing went wrong")
+    }
+
+  };
 
   return (
     <div>

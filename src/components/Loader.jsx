@@ -1,11 +1,13 @@
-import React from 'react'
-
-const Loader = () => {
+const Loading = () => {
   return (
-    <div>
-      
+    <div className='dots-container'>
+      <div className='dot'></div>
+      <div className='dot'></div>
+      <div className='dot'></div>
+      <div className='dot'></div>
+      <div className='dot'></div>
     </div>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loading;
