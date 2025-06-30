@@ -1,14 +1,22 @@
-# React + Vite
+# Task Manager App 📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description:
+A simple full-stack task manager app where users can add, update, and delete their daily tasks.
 
-Currently, two official plugins are available:
+## Features:
+- Add / Edit / Delete tasks
+- Mark tasks as completed
+- Responsive design for mobile and desktop
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack:
+- Frontend: React.js, CSS
+- Backend: Node.js, Express
+- Database: MongoDB
 
+## How to Run Locally:
+```bash
+git clone https://github.com/SupriyaRathore12/WeatherApp2.git
+cd WeatherApp2
+npm install
+npm run dev![Screenshot (TaskManager-App)](https://github.com/user-attachments/assets/7b9f9dc5-564c-4fba-9096-8eb5f950c0fd)
 
-
-
-
-className='form-container  w-40 md:w-[400px] flex flex-col gap-y-8 bg-white px-100 pt-50 pb-50'
