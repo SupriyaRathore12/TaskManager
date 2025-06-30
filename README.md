@@ -1,3 +1,5 @@
+![Screenshot (TaskManager-App)](https://github.com/user-attachments/assets/b6e06d96-542a-4f77-9181-021387fcae80)
+![Screenshot (TaskManager-App)](https://github.com/user-attachments/assets/2966e6aa-4cb9-47f8-9845-716aa3add8a2)
 # Task Manager App 📝
 
 ## Description:
